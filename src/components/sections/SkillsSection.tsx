@@ -12,7 +12,7 @@ const skillCategories: SkillCategory[] = [
     title: 'Languages & Frameworks',
     icon: Code,
     skills: [
-      { name: 'Python', level: 80 },
+      { name: 'Python', level: 70 },
       { name: 'Java', level: 70 },
       { name: 'Node.js', level: 85 },
       { name: 'TypeScript', level: 75 },

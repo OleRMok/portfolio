@@ -11,3 +11,8 @@ access_keys.csv
 
 # Zip files
 lambda_function_payload.zip
+
+# Node dependencies
+node_modules/
+dist/
+.env

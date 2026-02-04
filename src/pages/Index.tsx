@@ -13,13 +13,13 @@ const Index = () => {
   const [views, setViews] = useState<number | string>("...");
 
   useEffect(() => {
-    // Your actual AWS API Gateway endpoint from Terraform
+    //  actual AWS API Gateway endpoint from Terraform
     const apiURL = "https://q0hpnkvi80.execute-api.us-east-1.amazonaws.com/count";
 
     fetch(apiURL)
       .then(response => response.json())
       .then(data => {
-        // Access the count from your Python Lambda's return JSON
+        // Access the count from Python Lambda's return JSON
         setViews(data.count || data.body?.count || data);
       })
       .catch(error => {

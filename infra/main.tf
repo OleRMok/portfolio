@@ -190,9 +190,7 @@ resource "aws_apigatewayv2_api" "visitor_api" {
   name          = "visitor_counter_api"
   protocol_type = "HTTP"
   cors_configuration {
-    # Brutal Honesty: For production, replace "*" with "https://oleportfolio.com" 
-    # and "http://localhost:5173" for better security.
-    allow_origins = ["*"]
+    allow_origins = ["https://oleportfolio.com", "http://localhost:5173"]
     allow_methods = ["GET"]
   }
 }
@@ -229,6 +227,6 @@ resource "aws_lambda_permission" "apigw_lambda" {
 
 # 18. API Endpoint output
 output "api_url" {
-  # This provides the base URL + the specific route you created
+  # This provides the base URL + the specific route created
   value = "${aws_apigatewayv2_api.visitor_api.api_endpoint}/count"
 }

@@ -1,26 +1,52 @@
-# AWS-Native Serverless Portfolio using devops best practices
+Cloud & DevOps Portfolio: Olebogeng Mokoma
+This repository contains the source code and infrastructure for my professional portfolio, deployed as a highly available, serverless web application on AWS.
 
-A production-grade, serverless portfolio website architected to demonstrate functional independence in Cloud Engineering and DevOps methodologies. This project features a multi-tier architecture with a completely automated CI/CD pipeline.
+🚀 Architecture Overview
+The project is built using a modern DevOps stack to demonstrate cloud-native principles:
 
-## 🏗️ Architecture Overview
-This project follows a decoupled, serverless-first approach to ensure maximum scalability and zero maintenance overhead.
+Frontend: Built with React and Vite, featuring a responsive design and "white-labeled" metadata.
 
-* **Frontend**: Hosted on **AWS S3** and distributed globally via **Amazon CloudFront** using **Origin Access Control (OAC)** for enhanced security.
-***Backend**: **Python-based AWS Lambda** function handling real-time data processing.
-***Database**: **Amazon DynamoDB** (NoSQL) utilizing atomic increments for visitor tracking.
-***API Layer**: **Amazon API Gateway** (HTTP API) providing a managed REST endpoint.
+Infrastructure as Code (IaC): Managed entirely via Terraform, including S3, CloudFront, Lambda, and DynamoDB.
+
+Hosting: Static assets are hosted in Amazon S3 and delivered globally through Amazon CloudFront for low-latency access.
+
+Security: Secured with HTTPS via AWS Certificate Manager (ACM) and Origin Access Control (OAC) to protect S3 assets.
+
+Visitor Counter: A serverless backend using API Gateway, AWS Lambda (Python), and DynamoDB to track unique visits.
+
+🛠️ Key Technical Projects
+
+AWS Infrastructure Migration: Executed a "Lift-and-Shift" migration of on-premises workloads to AWS EC2 and VPC environments.
 
 
+PaaS Refactoring: Refactored monolithic architectures to Platform-as-a-Service (PaaS) models, utilizing managed cloud services to reduce operational overhead.
++1
 
-## 🛠️ DevOps & Automation Stack
-***Infrastructure as Code (IaC)**: Provisioned 100% of resources using **Terraform**, ensuring environment reproducibility.
-***CI/CD Pipeline**: Automated "code-to-cloud" deployments via **GitHub Actions**, including automated S3 syncing and CloudFront cache invalidation.
-***Security Architecture**: Implemented **Least-Privilege IAM Roles** and **Role-Based Access Control (RBAC)** for all serverless components.
 
-## 🚀 Key Engineering Highlights
-***Cloud Application Refactoring**: Transitioned from a static concept to a functional PaaS model.
-***Cost Governance**: Architected to remain entirely within the AWS Free Tier, demonstrating strategic resource allocation.
-***Functional Independence**: Managed end-to-end implementation from networking (VPC/Route 53) to backend logic (Python).
+Azure Cloud Resume: Architected a fully cloud-native resume system on Azure utilizing static hosting and serverless APIs.
++1
 
----
-*Created and maintained by Olebogeng Mokoma – Cloud & DevOps Engineer*.
+Observability Stack: Implemented a monitoring and observability stack using Prometheus, Grafana, and Loki.
+
+📜 Certifications & Skills
+
+Oracle Cloud Infrastructure 2025 Architect Associate (82%) 
+
+
+Microsoft Certified: DevOps Engineer Expert (86%) 
+
+
+OCI AI Foundations Associate (88%) 
+
+
+Core Skills: Terraform, GitHub Actions, CI/CD, Python, AWS, Azure, OCI, and SQL.
+
+🤖 CI/CD Pipeline
+Automated deployments are handled via GitHub Actions:
++1
+
+Build: Compiles the React application and zips the Lambda backend.
+
+Infrastructure: Applies Terraform configurations to maintain environment consistency.
+
+Deployment: Syncs assets to S3 and invalidates the CloudFront cache for instant updates

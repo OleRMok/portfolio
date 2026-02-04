@@ -8,7 +8,7 @@ table = dynamodb.Table('portfolio-visitor-count')
 
 def lambda_handler(event, context):
     try:
-        # Atomic Increment: Prevents race conditions (Junior vs. Senior distinction)
+        # Atomic Increment: Prevents race conditions and ensures accurate counts
         response = table.update_item(
             Key={'id': 'visitors'},
             UpdateExpression='ADD #c :val',

@@ -22,7 +22,10 @@ jobs:
         run: npm install
 
       - name: Build Project
-        run: npm run build
+        run: |
+          # Grant execution permission to the vite binary to fix "Permission denied"
+          chmod +x node_modules/.bin/vite
+          npm run build
       # -----------------------------------------
 
       - name: Configure AWS Credentials
@@ -34,9 +37,10 @@ jobs:
 
       - name: Sync S3
         run: |
-          # CRITICAL: We now sync the ./dist folder created by the build step
+          # Sync the ./dist folder created by the build step to your bucket 
           aws s3 sync ./dist s3://olebogeng-portfolio-2026 --delete
 
       - name: Invalidate CloudFront
         run: |
+          # Clear the cache for distribution EG9HI5JBHN3L4 so users see the latest content 
           aws cloudfront create-invalidation --distribution-id EG9HI5JBHN3L4 --paths "/*"

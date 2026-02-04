@@ -11,7 +11,7 @@ resource "aws_cloudfront_origin_access_control" "oac" {
   signing_protocol                  = "sigv4"
 }
 
-# 3. SSL Certificate (Must be in us-east-1)
+# 3. SSL Certificate 
 resource "aws_acm_certificate" "cert" {
   domain_name       = "oleportfolio.com"
   validation_method = "DNS"

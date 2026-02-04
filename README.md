@@ -1,7 +1,7 @@
-Cloud & DevOps Portfolio: Olebogeng Mokoma
+🚀 Cloud & DevOps Portfolio: Olebogeng Mokoma
 This repository contains the source code and infrastructure for my professional portfolio, deployed as a highly available, serverless web application on AWS.
 
-🚀 Architecture Overview
+🏗️ Architecture Overview
 The project is built using a modern DevOps stack to demonstrate cloud-native principles:
 
 Frontend: Built with React and Vite, featuring a responsive design and "white-labeled" metadata.
@@ -15,38 +15,28 @@ Security: Secured with HTTPS via AWS Certificate Manager (ACM) and Origin Access
 Visitor Counter: A serverless backend using API Gateway, AWS Lambda (Python), and DynamoDB to track unique visits.
 
 🛠️ Key Technical Projects
-
 AWS Infrastructure Migration: Executed a "Lift-and-Shift" migration of on-premises workloads to AWS EC2 and VPC environments.
 
-
 PaaS Refactoring: Refactored monolithic architectures to Platform-as-a-Service (PaaS) models, utilizing managed cloud services to reduce operational overhead.
-+1
-
 
 Azure Cloud Resume: Architected a fully cloud-native resume system on Azure utilizing static hosting and serverless APIs.
-+1
 
 Observability Stack: Implemented a monitoring and observability stack using Prometheus, Grafana, and Loki.
 
 📜 Certifications & Skills
+Oracle Cloud Infrastructure 2025 Architect Associate (82%)
 
-Oracle Cloud Infrastructure 2025 Architect Associate (82%) 
+Microsoft Certified: DevOps Engineer Expert (86%)
 
-
-Microsoft Certified: DevOps Engineer Expert (86%) 
-
-
-OCI AI Foundations Associate (88%) 
-
+OCI AI Foundations Associate (88%)
 
 Core Skills: Terraform, GitHub Actions, CI/CD, Python, AWS, Azure, OCI, and SQL.
 
 🤖 CI/CD Pipeline
 Automated deployments are handled via GitHub Actions:
-+1
 
 Build: Compiles the React application and zips the Lambda backend.
 
 Infrastructure: Applies Terraform configurations to maintain environment consistency.
 
-Deployment: Syncs assets to S3 and invalidates the CloudFront cache for instant updates
+Deployment: Syncs assets to S3 and invalidates the CloudFront cache for instant updates.

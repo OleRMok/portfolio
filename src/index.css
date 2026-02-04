@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Portfolio Design System - Dark Corporate Theme
+   All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark charcoal base - #1a1a2e inspired */
+    --background: 240 24% 14%;
+    --foreground: 210 40% 98%;
+
+    /* Cards slightly lighter than background */
+    --card: 234 32% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 234 32% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Teal accent for highlights */
+    --primary: 187 70% 50%;
+    --primary-foreground: 240 24% 10%;
+
+    /* Deep grey secondary */
+    --secondary: 232 32% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 232 25% 22%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Accent color matching primary */
+    --accent: 187 70% 50%;
+    --accent-foreground: 240 24% 10%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 232 25% 25%;
+    --input: 232 25% 20%;
+    --ring: 187 70% 50%;
+
+    --radius: 0.75rem;
+
+    /* Particle colors */
+    --particle: 187 70% 50%;
+    --particle-line: 187 50% 40%;
+
+    /* Gradient accents */
+    --gradient-start: 187 70% 50%;
+    --gradient-end: 200 80% 45%;
+
+    /* Skill bar colors */
+    --skill-bar: 187 70% 50%;
+    --skill-bar-bg: 232 25% 18%;
+  }
+
+  .dark {
+    /* Same as root - this is a dark-first design */
+    --background: 240 24% 14%;
+    --foreground: 210 40% 98%;
+    --card: 234 32% 12%;
+    --card-foreground: 210 40% 98%;
+    --popover: 234 32% 12%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 187 70% 50%;
+    --primary-foreground: 240 24% 10%;
+    --secondary: 232 32% 18%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 232 25% 22%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 187 70% 50%;
+    --accent-foreground: 240 24% 10%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 232 25% 25%;
+    --input: 232 25% 20%;
+    --ring: 187 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  /* Typing cursor animation */
+  .typing-cursor::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  /* Card flip animation */
+  .flip-card {
+    perspective: 1000px;
+  }
+
+  .flip-card-inner {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    backface-visibility: hidden;
+  }
+
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+
+  /* Glow effect */
+  .glow {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-2;
+    box-shadow: 0 20px 40px hsl(var(--primary) / 0.15);
+  }
+}

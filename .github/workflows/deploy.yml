@@ -12,6 +12,19 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
+      # --- STEPS FOR REACT BUILD ---
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Project
+        run: npm run build
+      # -----------------------------------------
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -21,7 +34,8 @@ jobs:
 
       - name: Sync S3
         run: |
-          aws s3 sync ./src s3://olebogeng-portfolio-2026 --delete
+          # CRITICAL: We now sync the ./dist folder created by the build step
+          aws s3 sync ./dist s3://olebogeng-portfolio-2026 --delete
 
       - name: Invalidate CloudFront
         run: |

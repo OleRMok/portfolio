@@ -35,7 +35,7 @@ const HeroSection = () => {
 
           {/* Description */}
           <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-12 animate-fade-in opacity-0" style={{ animationDelay: '0.8s' }}>
-            A 24-year-old tech enthusiast from Pretoria, passionate about building 
+            A tech enthusiast from Pretoria, passionate about building 
             robust backend systems, cloud infrastructure, and DevOps pipelines. 
             Currently seeking opportunities in Backend Development and Cloud/DevOps Engineering.
           </p>

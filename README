@@ -1,0 +1,101 @@
+# ☁️ Cloud & DevOps Portfolio — Olebogeng Mokoma
+
+> A production-grade, serverless web application deployed on AWS — demonstrating cloud-native architecture, Infrastructure as Code, and fully automated CI/CD.
+
+[![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?logo=github-actions&logoColor=white)](https://github.com)
+[![IaC](https://img.shields.io/badge/IaC-Terraform-7B42BC?logo=terraform&logoColor=white)](https://terraform.io)
+[![Cloud](https://img.shields.io/badge/Cloud-AWS-FF9900?logo=amazonaws&logoColor=white)](https://aws.amazon.com)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+
+---
+
+## 🏗️ Architecture Overview
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                        End User                             │
+│                   https://<domain>                          │
+└──────────────────────┬──────────────────────────────────────┘
+                       │ HTTPS (ACM Certificate)
+┌──────────────────────▼──────────────────────────────────────┐
+│               Amazon CloudFront (CDN)                       │
+│         Global edge distribution + OAC protection           │
+└──────┬───────────────────────────────────────┬──────────────┘
+       │ Static assets                          │ API calls
+┌──────▼──────────┐                  ┌──────────▼─────────────┐
+│   Amazon S3     │                  │     API Gateway         │
+│  Static Hosting │                  │   (REST Endpoint)       │
+│  React + Vite   │                  └──────────┬─────────────┘
+└─────────────────┘                             │ Invoke
+                                     ┌──────────▼─────────────┐
+                                     │    AWS Lambda (Python)  │
+                                     │   Visitor Counter Logic │
+                                     └──────────┬─────────────┘
+                                                │ Read/Write
+                                     ┌──────────▼─────────────┐
+                                     │       DynamoDB          │
+                                     │   Visitor Count Table   │
+                                     └────────────────────────┘
+
+Infrastructure managed entirely by Terraform
+Deployments automated via GitHub Actions
+```
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology | Purpose |
+|---|---|---|
+| Frontend | React, Vite, TypeScript | Responsive portfolio UI |
+| Hosting | Amazon S3 | Static asset storage |
+| CDN | Amazon CloudFront | Global low-latency delivery |
+| Security | ACM + OAC | HTTPS + S3 origin protection |
+| API | AWS API Gateway | Serverless REST endpoint |
+| Backend | AWS Lambda (Python) | Visitor counter logic |
+| Database | Amazon DynamoDB | Visitor count persistence |
+| IaC | Terraform | All infrastructure as code |
+| CI/CD | GitHub Actions | Automated build & deploy |
+
+---
+
+## ✨ Key Features
+
+**Serverless Architecture**
+Zero server management — Lambda scales automatically with demand and costs nothing when idle.
+
+**Infrastructure as Code**
+Every AWS resource (S3, CloudFront, Lambda, DynamoDB, ACM, API Gateway) is defined and versioned in Terraform — fully reproducible and auditable.
+
+**Secure by Default**
+- HTTPS enforced via AWS Certificate Manager
+- S3 bucket is completely private — only accessible through CloudFront via Origin Access Control (OAC)
+- No public S3 URLs exposed
+
+**Automated CI/CD Pipeline**
+Every push to `main` triggers a GitHub Actions workflow that builds, tests, and deploys — with zero manual steps.
+
+**Live Visitor Counter**
+A real-time serverless visitor counter backed by DynamoDB demonstrates end-to-end cloud integration.
+
+---
+
+## 🚀 CI/CD Pipeline
+
+```
+Push to main
+     │
+     ▼
+┌─────────────┐     ┌─────────────────┐     ┌──────────────────┐
+│    Build    │────▶│  Infrastructure  │────▶│    Deployment    │
+│             │     │                 │     │                  │
+│ npm build   │     │ terraform plan  │     │ aws s3 sync      │
+│ zip lambda  │     │ terraform apply │     │ cf invalidation  │
+└─────────────┘     └─────────────────┘     └──────────────────┘
+```
+
+1. **Build** — Compiles the React/Vite app and packages the Lambda function
+2. **Infrastructure** — Runs `terraform apply` to ensure AWS resources are in sync
+3. **Deployment** — Syncs static assets to S3 and invalidates the CloudFront cache for instant updates
+
+---

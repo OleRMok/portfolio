@@ -16,7 +16,7 @@ const timelineItems: TimelineItem[] = [
     title: 'Cloud & DevOps Engineering',
     organization: 'Technical Projects',
     period: 'Oct 2025 - Present',
-    description: 'Executing "Lift-and-Shift" migrations to AWS EC2/VPC and refactoring monolithic apps to PaaS models. Implementing IaC using Terraform for secure, reproducible environments.',
+    description: 'Specializing in AWS/OCI infrastructure automation. Successfully executed "Lift-and-Shift" migrations and app refactoring, Kubernetes deployments(EKS)leveraging Terraform for IaC and building comprehensive observability stacks (Prometheus/Grafana).',
   },
   {
     type: 'work',
